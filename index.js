@@ -5,3 +5,4 @@ var currentTime = new Date();
 lcd.clear();
 lcd.println(currentTime.toTimeString().substring(0, 8), 1);
 lcd.println("Hola como estas", 2);
+lcd.println("Hola como estas", 2);
