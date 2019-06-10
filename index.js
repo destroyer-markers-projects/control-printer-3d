@@ -3,7 +3,7 @@ var lcdi2c = require('lcdi2c');
 var dht    = require('dht-sensor');
 var gpio   = require('onoff').Gpio;
 
-// Funciones dsdfasdfa
+// Funciones
 
 function PrintLCD(HUMEDAD, TEMPERATURA) {
     var currentTime = new Date();
