@@ -25,8 +25,8 @@ var dht11   = dht.read(MODE_DHT, GPIO_DHT);
 var pir     = new gpio(GPIO_PIR, 'in', 'both');
 
 //Dispisitivo DHT11
-var HUMEDAD     = dht11.humidity);
-var TEMPERATURA = dht11.temperature);
+var HUMEDAD     = dht11.humidity;
+var TEMPERATURA = dht11.temperature;
 
 
 //Dispositivo PIR (Si tiene movimiento)
