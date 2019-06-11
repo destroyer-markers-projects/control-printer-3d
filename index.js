@@ -1,6 +1,6 @@
 //Modulos requeridos
 var lcdi2c = require('lcdi2c');
-var dht    = require('dht-sensor');
+var sensor = require('node-dht-sensor');
 var gpio   = require('onoff').Gpio;
 var Request= require("request");
 var rp     = require('request-promise');
@@ -13,7 +13,7 @@ var I2C_LCD  = "0x3f" // Dirección I2C LCD
 	
 //Declaramos las variables de los dispositivos
 var lcd     = new lcdi2c(1, 0x3f, 20, 4);
-var dht11   = dht.read(11, 4);
+
 
 //Borramos pantalla
 lcd.clear();
@@ -40,7 +40,18 @@ function Movimiento() {
     var FICHERO  = ""
     var PROGRESO = ""
     var RESTANTE = ""
-    var TEMPERATURA = dht11.temperature
+    var TEMPERATURA = ""
+    
+    sensor.read(22, GPIO_DHT, function(err, temperature, humidity) {
+        if (!err) {
+            console.log('temp: ' + temperature.toFixed(1) + '°C, ' +
+                'humidity: ' + humidity.toFixed(1) + '%'
+            );
+            TEMPERATURA = temperature.toFixed(1) + '°C'
+        }
+    });
+    
+    
     var api = {
         method: 'GET',
         uri: "https://balkiest-ruff-7920.dataplicity.io/api/job?apikey=2D12C1ECED1E4314A28CD39D0AA6FAAA",
