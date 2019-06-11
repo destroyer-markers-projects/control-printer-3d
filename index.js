@@ -5,18 +5,14 @@ var gpio   = require('onoff').Gpio;
 var Request= require("request");
 var rp     = require('request-promise');
 
-//Declaramos las variables de los dispositivos
-var lcd     = new lcdi2c(1, I2C_LCD, 20, 4);
-
 //Conexiones Dispositivos
 var MODE_DHT = 11     // Modelo DHT (11 o 22)
 var GPIO_DHT = 23     // DHT 11
 var GPIO_PIR = 4      // PIR
 var I2C_LCD  = "0x3f" // Dirección I2C LCD
 	
-//dddd
-lcd.clear();
-lcd.println("sssssss", 1);
+//Declaramos las variables de los dispositivos
+var lcd     = new lcdi2c(1, I2C_LCD, 20, 4);
 
 function WriteLCD(fichero,progreso,restante,temperatura){
     lcd.clear();
