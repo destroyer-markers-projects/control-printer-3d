@@ -22,12 +22,12 @@ function WriteLCD(fichero,progreso,restante,temperatura){
     lcd.println(temperatura, 4);
 }
 
-function WriteLCD_TEST(fichero,progreso,restante,temperatura){
-	console.log(fichero)
-    console.log(progreso)
-    console.log(restante)
-    console.log(temperatura)
-}
+//function WriteLCD_TEST(fichero,progreso,restante,temperatura){
+//	console.log(fichero)
+//    console.log(progreso)
+//    console.log(restante)
+//    console.log(temperatura)
+//}
 
 function Movimiento() {
 
@@ -56,10 +56,11 @@ function Movimiento() {
                 RESTANTE = "Restante: " + RESTANTE + " horas"
                 WriteLCD(FICHERO,PROGRESO,RESTANTE,"TEMPERATURA")
             }else{
-            	console.log ("paso")
+            	
                 FICHERO  = "Archivo : SIN DATOS"
                 PROGRESO = "Progreso: SIN DATOS"
                 RESTANTE = "Restante: SIN DATOS"
+                console.log (FICHERO)
                 WriteLCD(FICHERO,PROGRESO,RESTANTE,"TEMPERATURA")
             }
             //WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
