@@ -60,6 +60,7 @@ function Movimiento() {
                 FICHERO  = "Archivo : SIN DATOS"
                 PROGRESO = "Progreso: SIN DATOS"
                 RESTANTE = "Restante: SIN DATOS"
+                WriteLCD(FICHERO,PROGRESO,RESTANTE,"TEMPERATURA")
             }
             //WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
             
