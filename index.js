@@ -12,7 +12,7 @@ var GPIO_PIR = 4      // PIR
 var I2C_LCD  = "0x3f" // Dirección I2C LCD
 	
 //Declaramos las variables de los dispositivos
-var lcd     = new lcdi2c(1, I2C_LCD, 20, 4);
+var lcd     = new lcdi2c(1, 0x3f, 20, 4);
 
 function WriteLCD(fichero,progreso,restante,temperatura){
     lcd.clear();
