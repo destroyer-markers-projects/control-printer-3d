@@ -6,8 +6,20 @@ var Request= require("request");
 var rp     = require('request-promise');
 
 
+function WriteLCD(fichero,progreso,restante,temperatura){
+    lcd.clear();
+    lcd.println(fichero, 1);
+    lcd.println(progreso, 2);
+    lcd.println(restante, 3);
+    lcd.println(temperatura, 4);
+}
 
-
+function WriteLCD_TEST(fichero,progreso,restante,temperatura){
+	console.log(fichero)
+    console.log(progreso)
+    console.log(restante)
+    console.log(temperatura)
+}
 
 function Movimiento() {
 
@@ -34,8 +46,13 @@ function Movimiento() {
                 FICHERO  = "Archivo: " + FICHERO
                 PROGRESO = "Progreso: " + PROGRESO + " %"
                 RESTANTE = "Restante: " + RESTANTE + " horas"
-                console.log(FICHERO)
+            }else{
+                FICHERO  = "Archivo : SIN DATOS"
+                PROGRESO = "Progreso: SIN DATOS"
+                RESTANTE = "Restante: SIN DATOS"
             }
+            WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
+            //WriteLCD(FICHERO,PROGRESO,RESTANTE,TEMPERATURA)
 
         })
         .catch(function (err) {
@@ -43,9 +60,10 @@ function Movimiento() {
             FICHERO  = "Archivo : ERROR"
             PROGRESO = "Progreso: ERROR"
             RESTANTE = "Restante: ERROR"
+            WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
+            //WriteLCD(FICHERO,PROGRESO,RESTANTE,TEMPERATURA)
         });
-    
-    console.log(FICHERO)
+  
 }
 
 setInterval(Movimiento, 1500);
