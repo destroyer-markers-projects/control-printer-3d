@@ -7,13 +7,13 @@ var rp     = require('request-promise');
 
 //Conexiones Dispositivos
 var MODE_DHT = 11     // Modelo DHT (11 o 22)
-var GPIO_DHT = 23     // DHT 11
+var GPIO_DHT = 4     // DHT 11
 var GPIO_PIR = 4      // PIR
 var I2C_LCD  = "0x3f" // Dirección I2C LCD
 	
 //Declaramos las variables de los dispositivos
 var lcd     = new lcdi2c(1, 0x3f, 20, 4);
-var dht11   = dht.read(11, 23);
+var dht11   = dht.read(11, 4);
 
 //Borramos pantalla
 lcd.clear();
