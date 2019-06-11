@@ -5,6 +5,9 @@ var gpio   = require('onoff').Gpio;
 var Request= require("request");
 var rp     = require('request-promise');
 
+//Declaramos las variables de los dispositivos
+var lcd     = new lcdi2c(1, I2C_LCD, 20, 4);
+
 
 function WriteLCD(fichero,progreso,restante,temperatura){
     lcd.clear();
