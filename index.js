@@ -42,7 +42,7 @@ function Movimiento() {
         uri: "https://balkiest-ruff-7920.dataplicity.io/api/job?apikey=2D12C1ECED1E4314A28CD39D0AA6FAAA",
         json: true
     };
-    console.log ("paso")
+    
     rp(api)
         .then(function (parsedBody) {
             if (parsedBody.state == "Printing"){
@@ -56,6 +56,7 @@ function Movimiento() {
                 PROGRESO = "Progreso: " + PROGRESO + " %"
                 RESTANTE = "Restante: " + RESTANTE + " horas"
             }else{
+            	console.log ("paso")
                 FICHERO  = "Archivo : SIN DATOS"
                 PROGRESO = "Progreso: SIN DATOS"
                 RESTANTE = "Restante: SIN DATOS"
@@ -69,6 +70,7 @@ function Movimiento() {
             FICHERO  = "Archivo : ERROR"
             PROGRESO = "Progreso: ERROR"
             RESTANTE = "Restante: ERROR"
+            	console.log ("paso11")
             //WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
             WriteLCD(FICHERO,PROGRESO,RESTANTE,TEMPERATURA)
         });
