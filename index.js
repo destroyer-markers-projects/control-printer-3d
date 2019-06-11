@@ -42,7 +42,7 @@ function Movimiento() {
         uri: "https://balkiest-ruff-7920.dataplicity.io/api/job?apikey=2D12C1ECED1E4314A28CD39D0AA6FAAA",
         json: true
     };
-
+    console.log ("paso")
     rp(api)
         .then(function (parsedBody) {
             if (parsedBody.state == "Printing"){
