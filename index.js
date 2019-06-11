@@ -13,9 +13,9 @@ var I2C_LCD  = "0x3f" // Dirección I2C LCD
 	
 //Declaramos las variables de los dispositivos
 var lcd     = new lcdi2c(1, 0x3f, 20, 4);
-
+lcd.clear();
 function WriteLCD(fichero,progreso,restante,temperatura){
-    lcd.clear();
+    
     lcd.println(fichero, 1);
     lcd.println(progreso, 2);
     lcd.println(restante, 3);
@@ -61,11 +61,7 @@ function Movimiento() {
                 PROGRESO = "Progreso: SIN DATOS"
                 RESTANTE = "Restante: SIN DATOS"
                 console.log (FICHERO)
-               lcd.clear();
-            lcd.println(FICHERO, 1);
-            lcd.println(PROGRESO, 2);
-            lcd.println(RESTANTE, 3);
-            lcd.println("temperatura", 4);
+                WriteLCD(FICHERO,PROGRESO,RESTANTE,"TEMPERATURA")
             }
             //WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
             
