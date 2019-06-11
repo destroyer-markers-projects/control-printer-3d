@@ -34,7 +34,7 @@ pir.watch(function(err, value) {
     if (value == 1) {
         PrintLCD('Intruder alert');
     } else {
-        PrintLCD('Intruder gone');
+        PrintLCD('Intruder gosssssne');
     }
 });
 
