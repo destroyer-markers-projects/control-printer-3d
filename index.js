@@ -61,7 +61,11 @@ function Movimiento() {
                 PROGRESO = "Progreso: SIN DATOS"
                 RESTANTE = "Restante: SIN DATOS"
                 console.log (FICHERO)
-                WriteLCD(FICHERO,PROGRESO,RESTANTE,"TEMPERATURA")
+               lcd.clear();
+            lcd.println(FICHERO, 1);
+            lcd.println(PROGRESO, 2);
+            lcd.println(RESTANTE, 3);
+            lcd.println("temperatura", 4);
             }
             //WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
             
