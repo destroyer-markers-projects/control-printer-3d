@@ -1,7 +1,7 @@
 //Modulos requeridos
-//var lcdi2c = require('lcdi2c');
-//var dht    = require('dht-sensor');
-//var gpio   = require('onoff').Gpio;
+var lcdi2c = require('lcdi2c');
+var dht    = require('dht-sensor');
+var gpio   = require('onoff').Gpio;
 var Request= require("request");
 var rp     = require('request-promise');
 
@@ -51,8 +51,8 @@ function Movimiento() {
                 PROGRESO = "Progreso: SIN DATOS"
                 RESTANTE = "Restante: SIN DATOS"
             }
-            WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
-            //WriteLCD(FICHERO,PROGRESO,RESTANTE,TEMPERATURA)
+            //WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
+            WriteLCD(FICHERO,PROGRESO,RESTANTE,"TEMPERATURA")
 
         })
         .catch(function (err) {
@@ -60,8 +60,8 @@ function Movimiento() {
             FICHERO  = "Archivo : ERROR"
             PROGRESO = "Progreso: ERROR"
             RESTANTE = "Restante: ERROR"
-            WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
-            //WriteLCD(FICHERO,PROGRESO,RESTANTE,TEMPERATURA)
+            //WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
+            WriteLCD(FICHERO,PROGRESO,RESTANTE,TEMPERATURA)
         });
   
 }
