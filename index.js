@@ -13,7 +13,7 @@ var I2C_LCD  = "0x3f" // Dirección I2C LCD
 	
 //Declaramos las variables de los dispositivos
 var lcd     = new lcdi2c(1, 0x3f, 20, 4);
-var dht11   = dht.read(MODE_DHT, GPIO_DHT);
+var dht11   = dht.read(11, 23);
 
 //Borramos pantalla
 lcd.clear();
