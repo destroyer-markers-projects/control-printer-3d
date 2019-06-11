@@ -13,7 +13,12 @@ var I2C_LCD  = "0x3f" // Dirección I2C LCD
 	
 //Declaramos las variables de los dispositivos
 var lcd     = new lcdi2c(1, 0x3f, 20, 4);
+var dht11   = dht.read(MODE_DHT, GPIO_DHT);
+
+//Borramos pantalla
 lcd.clear();
+
+
 function WriteLCD(fichero,progreso,restante,temperatura){
     
     lcd.println(fichero, 1);
@@ -35,7 +40,7 @@ function Movimiento() {
     var FICHERO  = ""
     var PROGRESO = ""
     var RESTANTE = ""
-    
+    var TEMPERATURA = dht11.temperature
     var api = {
         method: 'GET',
         uri: "https://balkiest-ruff-7920.dataplicity.io/api/job?apikey=2D12C1ECED1E4314A28CD39D0AA6FAAA",
@@ -54,25 +59,21 @@ function Movimiento() {
                 FICHERO  = "Archivo: " + FICHERO
                 PROGRESO = "Progreso: " + PROGRESO + " %"
                 RESTANTE = "Restante: " + RESTANTE + " horas"
-                WriteLCD(FICHERO,PROGRESO,RESTANTE,"TEMPERATURA")
+                WriteLCD(FICHERO,PROGRESO,RESTANTE,TEMPERATURA)
             }else{
-            	
                 FICHERO  = "Archivo : SIN DATOS"
                 PROGRESO = "Progreso: SIN DATOS"
                 RESTANTE = "Restante: SIN DATOS"
                 console.log (FICHERO)
-                WriteLCD(FICHERO,PROGRESO,RESTANTE,"TEMPERATURA")
+                WriteLCD(FICHERO,PROGRESO,RESTANTE, TEMPERATURA)
             }
-            //WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
-            
-
         })
         .catch(function (err) {
             console.log(err)
             FICHERO  = "Archivo : ERROR"
             PROGRESO = "Progreso: ERROR"
             RESTANTE = "Restante: ERROR"
-            	console.log ("paso11")
+            console.log ("Error en la conexion")
             //WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
             WriteLCD(FICHERO,PROGRESO,RESTANTE,TEMPERATURA)
         });
