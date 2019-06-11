@@ -14,7 +14,10 @@ var GPIO_DHT = 23     // DHT 11
 var GPIO_PIR = 4      // PIR
 var I2C_LCD  = "0x3f" // Dirección I2C LCD
 	
-	
+//dddd
+lcd.clear();
+lcd.println("sssssss", 1);
+
 function WriteLCD(fichero,progreso,restante,temperatura){
     lcd.clear();
     lcd.println(fichero, 1);
@@ -55,12 +58,12 @@ function Movimiento() {
                 FICHERO  = "Archivo: " + FICHERO
                 PROGRESO = "Progreso: " + PROGRESO + " %"
                 RESTANTE = "Restante: " + RESTANTE + " horas"
+                WriteLCD(FICHERO,PROGRESO,RESTANTE,"TEMPERATURA")
             }else{
             	console.log ("paso")
                 FICHERO  = "Archivo : SIN DATOS"
                 PROGRESO = "Progreso: SIN DATOS"
                 RESTANTE = "Restante: SIN DATOS"
-                	WriteLCD(FICHERO,PROGRESO,RESTANTE,"TEMPERATURA")
             }
             //WriteLCD_TEST(FICHERO,PROGRESO,RESTANTE,"DDDDD")
             
