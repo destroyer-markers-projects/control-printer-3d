@@ -1,6 +1,18 @@
 var lcdi2c = require('lcdi2c');
+var sensor = require('node-dht-sensor');
+var gpio   = require('onoff').Gpio;
+
 var lcd = new lcdi2c(1, 0x3f, 16, 2);
-var currentTime = new Date();
+
 lcd.clear();
-lcd.println(currentTime.toTimeString().substring(0, 8), 1);
-lcd.println("Hola como eSSSSSSstas", 2);
+
+sensor.read(22, 23, function(err, temperature, humidity) {
+	if (!err) {
+		console.log('temp: ' + temperature.toFixed(1) + '°C, ' +
+			'humidity: ' + humidity.toFixed(1) + '%'
+		);
+		TEMPERATURA = temperature.toFixed(1) + '°C'
+		lcd.println(TEMPERATURA, 2);
+	}
+});
+
