@@ -26,7 +26,7 @@
 
 var rpiDhtSensor = require('rpi-dht-sensor');
  
-var dht = new rpiDhtSensor.DHT11(2);
+var dht = new rpiDhtSensor.DHT11(23);
  
 function read () {
 	var readout = dht.read();
